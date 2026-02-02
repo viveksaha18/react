@@ -7,9 +7,20 @@ function App() {
   //let counter = 5
   const addValue = () => {
     console.log('clicked')
-    counter = counter+1
-    setCounter(counter)
-    console.log(counter)
+    // Fibres in React batch the state updates for performance optimization
+    // So, multiple calls to setCounter in the same event handler will not
+    // immediately update the counter variable.
+    // It execurtes the last call and overrides the previous ones.
+    /*
+    setCounter(counter+1)
+    setCounter(counter+1)
+    setCounter(counter+1)*/
+    // To do the previous task we go with callback function
+    // because it executes in order
+    //do not use curly braces if you are returning something so that you dont need to use return keyword
+    setCounter((prevCounter) => prevCounter + 1)
+    setCounter((prevCounter)=>prevCounter+1)
+    setCounter((prevCounter)=>prevCounter+1)
   }
   let [counter, setCounter] = useState(5)
   const subtract = () => {
