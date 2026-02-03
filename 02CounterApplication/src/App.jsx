@@ -6,6 +6,7 @@ import './App.css'
 function App() {
   //let counter = 5
   const addValue = () => {
+    //Setter function accepts a callback function
     console.log('clicked')
     // Fibres in React batch the state updates for performance optimization
     // So, multiple calls to setCounter in the same event handler will not
