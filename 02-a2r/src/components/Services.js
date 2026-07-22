@@ -4,7 +4,7 @@ import Footer from './Footer';
 function Services() {
   return (
     <div>
-        <Navbar />
+      <Navbar />
       <h1>Service Component</h1>
       <Footer />
     </div>
