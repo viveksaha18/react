@@ -52,7 +52,7 @@ const Forget = () => {
               </form>
 
               <div className="text-center mt-3">
-                <Link to="/" className="text-decoration-none">
+                <Link to="/login" className="text-decoration-none">
                   Back to Login
                 </Link>
               </div>

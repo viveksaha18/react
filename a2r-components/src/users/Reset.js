@@ -40,7 +40,7 @@ const Reset = () => {
               </form>
 
               <div className="text-center mt-3">
-                <Link to="/">Back to Login</Link>
+                <Link to="/login">Back to Login</Link>
               </div>
             </div>
           </div>

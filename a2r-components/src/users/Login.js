@@ -41,7 +41,7 @@ const Login = () => {
 
               <div className="mt-3 text-center">
                 <Link to="/forget-password">
-                  Forgot Password?
+                  Forgot Password
                 </Link>
               </div>
 
