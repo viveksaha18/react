@@ -28,7 +28,7 @@ function App() {
         <tbody>
           {
             data.map((employee) => {
-              
+              return (
                 <tr>
                   <td>{employee.id}</td>
                   <td>{employee.name}</td>
@@ -36,7 +36,7 @@ function App() {
                   <td>{employee.department}</td>
                   <td>{employee.salary}</td>
                 </tr>
-              
+              )
             })
           }
         </tbody>
