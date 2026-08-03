@@ -1,70 +1,84 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState } from 'react';
+import { useState } from "react"
 
 function App() {
-  const [name, setName] = useState('');
-  const [item, setItem] = useState([]);
+  const [itemName, setItemName] = useState("")
+  const [addItem, setaddItem] = useState([])
 
-  const handleItem = (e) => {
-    setName(e.target.value);
+  const handleInput = (e) => {
+    setItemName(e.target.value)
   }
-  //console.log(name);
+  //console.log(itemName)
+  const displayItem = () => {
+    console.log(itemName)
+  }
 
-  const addItem = () => {
-    setItem([...item, name]);
-    setName("");
+  const addItemOnList = () => {
+    setaddItem([...addItem, itemName])
+    setItemName("");
   }
-  //console.log(item);
-
-  const deleteItem = (index) => {
-    const newItemList = item.filter((element, i) => index !== i);
-    console.log(newItemList)
-    setItem(newItemList)
+  const showElement = () => {
+     console.log(addItem)
   }
+ 
+  const deleteItem = (idx) => {
+    const newItemList = addItem.filter((value, index) => idx !== index);
+    setaddItem(newItemList);
+  }
+  
   return (
     <div>
-      <input 
-      type='text'
-      placeholder='Enter an element'
-      value={name}
-      onChange={handleItem}
-      />
-      <br />
-      <br />
-      <br />
-      <button
-      onClick={addItem}
-      >Add</button>
+    <input 
+    value={itemName}
+    type="text"
+    placeholder="Enter the item name"
+    onChange={handleInput}
+    />
 
-      <br />
-      <br/>
-      <br />
-      <table>
-        <thead>
-          <tr>
-          <th>Items</th>
-          <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-           {item.map((i, index) => {
+    <br />
+    <br />
+
+    <button
+    onClick={displayItem}
+    >Display</button>
+
+    <br />
+    <br />
+    <button
+    onClick={addItemOnList}
+    >Add</button>
+
+
+    <button
+    onClick={showElement}
+    >
+      showItem
+    </button>
+
+
+    <br />
+    <br />
+    <table>
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {addItem.map((value, index) => {
           return(
             <tr key={index}>
-              <td>{i}</td>
-              <td>
-                <button
-                onClick={() => deleteItem(index)}
-                >Delete</button>
-              </td>
+              <td>{value}</td>
+              <td><button
+              onClick={() => deleteItem(index)}
+              >Delete</button></td>
             </tr>
           )
         })}
-        </tbody>
-       
-      </table>
+      </tbody>
+    </table>
     </div>
-  );
+  )
 }
 
 export default App;
